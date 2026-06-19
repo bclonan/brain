@@ -1,0 +1,13 @@
+# Fibonacci Grid AI System - Production Requirements (Pure Python)
+
+# Flask and web server
+flask==2.2.3
+flask-cors==3.0.10
+gunicorn==20.1.0
+
+# Utilities
+werkzeug==2.2.3
+python-dotenv==1.0.0
+
+# For production deployment
+whitenoise==6.4.0

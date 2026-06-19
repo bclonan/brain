@@ -1,0 +1,243 @@
+/* 
+ * Fibonacci Grid System - CSS Styles
+ */
+
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #334e68;
+    --accent-color: #ff6b6b;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --grid-cell-size: 40px;
+}
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.sidebar {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.content-section {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.visualization-container {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 10px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visualization-container img {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+}
+
+.matrix-editor table {
+    width: auto;
+    margin: 0 auto;
+}
+
+.matrix-editor input {
+    width: 60px;
+    text-align: center;
+}
+
+.matrix-label {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.lineage-node {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.node-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.node-position {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.node-children {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Grid Visualization Styles */
+.grid-cell {
+    width: var(--grid-cell-size);
+    height: var(--grid-cell-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.grid-cell:hover {
+    background-color: rgba(74, 111, 165, 0.1);
+}
+
+.grid-cell.origin {
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+.grid-cell.lightning-path {
+    background-color: rgba(255, 193, 7, 0.2);
+}
+
+.grid-cell.whirlwind-affected {
+    background-color: rgba(23, 162, 184, 0.2);
+}
+
+/* Frequency Visualization Styles */
+.frequency-wave {
+    stroke-width: 2;
+    fill: none;
+}
+
+.frequency-wave.wave1 {
+    stroke: var(--primary-color);
+}
+
+.frequency-wave.wave2 {
+    stroke: var(--secondary-color);
+}
+
+.beat-wave {
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Compression Visualization Styles */
+.compression-mapping {
+    stroke: var(--dark-color);
+    stroke-width: 1;
+    fill: none;
+}
+
+.compression-node {
+    fill: var(--primary-color);
+}
+
+.compression-node.original {
+    fill: var(--info-color);
+}
+
+.compression-node.compressed {
+    fill: var(--success-color);
+}
+
+/* Demo Styles */
+.demo-step {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0.25rem;
+    background-color: var(--light-color);
+    border-left: 5px solid var(--primary-color);
+}
+
+.demo-step.active {
+    border-left-color: var(--success-color);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.demo-step.completed {
+    border-left-color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+.demo-visualization {
+    height: 400px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .visualization-container {
+        min-height: 200px;
+    }
+    
+    .grid-cell {
+        --grid-cell-size: 30px;
+    }
+}
+
+/* Animation Effects */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Toast Notifications */
+.toast {
+    min-width: 300px;
+}
+
+.toast-header {
+    padding: 0.5rem 0.75rem;
+}
+
+.toast-body {
+    padding: 0.75rem;
+}
